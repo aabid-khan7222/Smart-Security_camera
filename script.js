@@ -233,31 +233,6 @@ if (textarea) {
     });
 }
 
-// Mobile Bottom Bar - Hide on scroll down, show on scroll up
-let lastScrollTop = 0;
-const mobileBottomBar = document.querySelector('.mobile-bottom-bar');
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (mobileBottomBar) {
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            // Scrolling down
-            mobileBottomBar.style.transform = 'translateY(100%)';
-        } else {
-            // Scrolling up
-            mobileBottomBar.style.transform = 'translateY(0)';
-        }
-    }
-    
-    lastScrollTop = scrollTop;
-}, false);
-
-// Add smooth transitions to mobile bottom bar
-if (mobileBottomBar) {
-    mobileBottomBar.style.transition = 'transform 0.3s ease';
-}
-
 // Lazy loading for images (if browser supports it)
 if ('loading' in HTMLImageElement.prototype) {
     const images = document.querySelectorAll('img[data-src]');
