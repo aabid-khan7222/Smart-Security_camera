@@ -13,16 +13,18 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./style.css?v=2">
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!-- Header / Navbar -->
     <header class="header" id="header">
         <nav class="navbar container">
             <div class="nav-brand">
-                <div class="logo-text">
-                    <span class="logo-line-1">PERFECT SECURITY</span>
-                    <span class="logo-line-2">CAMERA SOLUTION</span>
-                </div>
+                <a href="#home" class="logo-link">
+                    <img src="./WhatsApp Image 2026-01-27 at 1,11,37 AM-Picsart-BackgroundRemover.jpeg" alt="Perfect Security Camera Solution" class="logo-image">
+                </a>
             </div>
             
             <ul class="nav-menu" id="navMenu">
@@ -152,6 +154,12 @@
             <div class="section-header">
                 <h2 class="section-title">Our Products & Solutions</h2>
                 <p class="section-tagline">We supply and install trusted brands with warranty support.</p>
+                <div class="browse-products-btn-wrapper">
+                    <button class="btn btn-primary btn-large browse-products-btn" id="browseProductsBtn">
+                        <span>Browse Our Products</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
             </div>
             <div class="products-grid">
                 <div class="product-card">
@@ -222,6 +230,700 @@
                         <h3 class="product-title">DVR / NVR Systems</h3>
                         <p class="product-tagline">Recording systems with high-capacity storage and remote access</p>
                         <a href="#contact" class="btn btn-outline">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section (Hidden by default) -->
+    <section class="product-showcase" id="productShowcase">
+        <div class="product-showcase-container">
+            <button class="back-to-home-btn" id="backToHomeBtn" aria-label="Back to home">
+                <span class="back-icon">←</span>
+                <span>Back to Home</span>
+            </button>
+            <br><p> <br><br> 
+            
+            <div class="container">
+                <div class="product-showcase-header">
+                    <h1 class="product-showcase-title">Perfect Security Camera Solution</h1>
+                    <p class="product-showcase-description">
+                        A Perfect Security Camera Solution is a comprehensive, intelligent surveillance system designed to protect people, property, and assets 24/7 with unmatched clarity, reliability, and smart automation. It seamlessly combines cutting-edge hardware, advanced software, and secure cloud technologies to create a surveillance ecosystem that is easy to install, simple to manage, and powerful in performance.
+                    </p>
+                </div>
+
+                <div class="features-section">
+                    <h2 class="features-title">Key Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔎</div>
+                            <h3 class="feature-card-title">High-Resolution Monitoring</h3>
+                            <p class="feature-card-description">
+                                Equipped with high-definition (HD) or Ultra-HD (4K) cameras, this solution delivers crisp, detailed video footage day and night. Whether capturing faces, license plates, or distant activity, clarity is never compromised.
+                            </p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🌙</div>
+                            <h3 class="feature-card-title">All-Weather & Night Vision</h3>
+                            <p class="feature-card-description">
+                                Robust infrared or low-light sensors allow clear night surveillance. Weather-proof designs (IP66/IP67 ratings) ensure dependable operation in rain, dust, heat, or cold.
+                            </p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📡</div>
+                            <h3 class="feature-card-title">Smart Connectivity & Remote Access</h3>
+                            <p class="feature-card-description">
+                                Live video streaming and playback from anywhere via mobile apps and web portals. Real-time alerts notify you instantly on motion detection, tampering, or unusual activity.
+                            </p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3 class="feature-card-title">Intelligent Analytics</h3>
+                            <p class="feature-card-description">
+                                Built-in AI features such as motion detection, people/vehicle classification, line crossing alerts, and object removal detection reduce false alarms and provide meaningful insights.
+                            </p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🔐</div>
+                            <h3 class="feature-card-title">Secure Storage & Encryption</h3>
+                            <p class="feature-card-description">
+                                Video footage can be stored locally (SD card/DVR/NVR) and/or securely in the cloud with encrypted transmission and access control, ensuring data integrity and privacy.
+                            </p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📍</div>
+                            <h3 class="feature-card-title">Scalable & Customizable</h3>
+                            <p class="feature-card-description">
+                                From a single front-door camera to a multi-camera campus deployment, the system scales effortlessly. Custom zones, schedules, and alert rules adapt to your security needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid Section -->
+                <div class="showcase-products-section">
+                    <h2 class="showcase-products-title">Our Products</h2>
+                    <div class="showcase-products-container">
+                        <div class="showcase-products-grid" id="showcaseProductsGrid">
+                        <!-- Product 1: iP Dome 4mp Color+mic -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=600&q=80" alt="iP Dome 4mp Color+mic" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">iP Dome 4mp Color+mic</h3>
+                                <p class="showcase-product-description">High-quality 4MP dome camera with color night vision and built-in microphone for clear audio recording.</p>
+                                <ul class="showcase-product-features">
+                                    <li>4MP High Resolution</li>
+                                    <li>Color Night Vision</li>
+                                    <li>Built-in Microphone</li>
+                                </ul>
+                                <div class="showcase-product-price">₹2,600</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 2: iP Bulet 4mp Color+mic -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="iP Bulet 4mp Color+mic" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">iP Bulet 4mp Color+mic</h3>
+                                <p class="showcase-product-description">Weather-resistant bullet camera with 4MP resolution, color night vision, and audio recording capability.</p>
+                                <ul class="showcase-product-features">
+                                    <li>4MP Ultra HD Quality</li>
+                                    <li>Weatherproof Design</li>
+                                    <li>Audio Recording Enabled</li>
+                                </ul>
+                                <div class="showcase-product-price">₹3,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 3: iP Dome 5mp Color+mic -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=600&q=80" alt="iP Dome 5mp Color+mic" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">iP Dome 5mp Color+mic</h3>
+                                <p class="showcase-product-description">Premium 5MP dome camera with superior image quality, color night vision, and integrated microphone.</p>
+                                <ul class="showcase-product-features">
+                                    <li>5MP Super HD Resolution</li>
+                                    <li>Enhanced Color Vision</li>
+                                    <li>Two-Way Audio Support</li>
+                                </ul>
+                                <div class="showcase-product-price">₹3,500</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 4: iP Bulet 5mp Color+mic -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="iP Bulet 5mp Color+mic" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">iP Bulet 5mp Color+mic</h3>
+                                <p class="showcase-product-description">Advanced 5MP bullet camera with exceptional clarity, color night vision, and professional audio recording.</p>
+                                <ul class="showcase-product-features">
+                                    <li>5MP Crystal Clear Imaging</li>
+                                    <li>Long-Range Color Vision</li>
+                                    <li>Professional Audio Quality</li>
+                                </ul>
+                                <div class="showcase-product-price">₹4,000</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 5: Q100 NVR 4K - 10ch -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Q100 NVR 4K 10ch" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 NVR 4K - 10ch</h3>
+                                <p class="showcase-product-description">Professional 4K Network Video Recorder supporting up to 10 channels with advanced recording and remote access capabilities.</p>
+                                <ul class="showcase-product-features">
+                                    <li>10 Channel Support</li>
+                                    <li>4K Ultra HD Recording</li>
+                                    <li>Remote Access Enabled</li>
+                                </ul>
+                                <div class="showcase-product-price">₹3,800</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 6: Q100 NVR 4K - 16ch -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Q100 NVR 4K 16ch" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 NVR 4K - 16ch</h3>
+                                <p class="showcase-product-description">High-capacity 4K NVR system supporting 16 channels with enhanced storage and multi-camera management features.</p>
+                                <ul class="showcase-product-features">
+                                    <li>16 Channel Support</li>
+                                    <li>4K Recording Quality</li>
+                                    <li>Multi-Camera Management</li>
+                                </ul>
+                                <div class="showcase-product-price">₹4,000</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 7: Q100 NVR 4K - 36ch -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Q100 NVR 4K 36ch" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 NVR 4K - 36ch</h3>
+                                <p class="showcase-product-description">Enterprise-grade 4K NVR system with 36 channel support, ideal for large-scale surveillance installations.</p>
+                                <ul class="showcase-product-features">
+                                    <li>36 Channel Support</li>
+                                    <li>Enterprise-Grade Performance</li>
+                                    <li>Large-Scale Surveillance</li>
+                                </ul>
+                                <div class="showcase-product-price">₹8,000</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 8: Q100 Cat-6 Outdoor -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Q100 Cat-6 Outdoor" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 Cat-6 Outdoor</h3>
+                                <p class="showcase-product-description">Professional outdoor network cable with full copper construction and heavy gauge design, perfect for long-distance installations.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Full Copper Construction</li>
+                                    <li>Heavy Gauge Design</li>
+                                    <li>300 Meter Length</li>
+                                </ul>
+                                <div class="showcase-product-price">₹6,800</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 9: Q100 iP 8mm 50mtr 4mp -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80" alt="Q100 iP 8mm 50mtr 4mp" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 iP 8mm 50mtr 4mp</h3>
+                                <p class="showcase-product-description">4MP IP camera with 8mm lens, 50-meter cable, color night vision, and built-in audio. Compatible with all NVR systems.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Color VU + Audio Inbuilt</li>
+                                    <li>Compatible with All NVR</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹3,800</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 10: Mastel Solar Dual linkage -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./mastel-solar-dual-linkage.png" alt="Mastel Solar Dual linkage" class="showcase-product-image" style="object-fit: contain; background: #f0f0f0;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Mastel Solar Dual linkage</h3>
+                                <p class="showcase-product-description">Solar-powered dual-lens camera with 5MP + 5MP resolution, 256GB SD card support, and 4G connectivity for remote monitoring.</p>
+                                <ul class="showcase-product-features">
+                                    <li>5MP + 5MP Dual Lenses</li>
+                                    <li>256GB SD Card Supportable</li>
+                                    <li>1 Year Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹6,800</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 11: MASTEL 4g AF790 ULTRA WIFI-6 -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./WhatsApp Image 2026-01-27 at 12.47.38 AM.jpeg" alt="MASTEL 4g AF790 ULTRA WIFI-6" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">MASTEL 4g AF790 ULTRA WIFI-6</h3>
+                                <p class="showcase-product-description">Smart 4G plug and play internet solution with WiFi-6 technology for faster speeds and seamless connectivity.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Faster Speed with WiFi-6</li>
+                                    <li>Compatible with 4G/5G SIM Card</li>
+                                    <li>Connect with Upto 32 Users</li>
+                                </ul>
+                                <div class="showcase-product-price">₹2,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 12: Booster Repeater -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Booster Repeater" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Booster Repeater</h3>
+                                <p class="showcase-product-description">Professional mobile network booster repeater to amplify and extend cellular signal coverage in weak signal areas.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Signal Amplification</li>
+                                    <li>Extended Coverage Area</li>
+                                    <li>Professional Grade</li>
+                                </ul>
+                                <div class="showcase-product-price">₹5,500</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 13: Antenna 9Dbi Original -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Antenna 9Dbi Original" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Antenna (9Dbi Original)</h3>
+                                <p class="showcase-product-description">High-gain 9Dbi original antenna for enhanced signal reception and transmission in mobile network booster systems.</p>
+                                <ul class="showcase-product-features">
+                                    <li>9Dbi High Gain</li>
+                                    <li>Original Quality</li>
+                                    <li>Enhanced Signal Reception</li>
+                                </ul>
+                                <div class="showcase-product-price">₹1,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 14: LMR Cable -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="LMR Cable" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">LMR Cable</h3>
+                                <p class="showcase-product-description">Low loss LMR cable for mobile network booster installations, ensuring minimal signal loss over distance.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Low Signal Loss</li>
+                                    <li>Professional Quality</li>
+                                    <li>Per Meter Pricing</li>
+                                </ul>
+                                <div class="showcase-product-price">₹110/Meter</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 15: Connector -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Connector" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Connector</h3>
+                                <p class="showcase-product-description">High-quality connector for secure and reliable connections in mobile network booster cable installations.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Secure Connection</li>
+                                    <li>High Quality Build</li>
+                                    <li>Reliable Performance</li>
+                                </ul>
+                                <div class="showcase-product-price">₹90</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 16: Splitter 2way -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Splitter 2way" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Splitter (2way)</h3>
+                                <p class="showcase-product-description">2-way signal splitter for distributing mobile network signal to multiple antennas or devices efficiently.</p>
+                                <ul class="showcase-product-features">
+                                    <li>2-Way Signal Distribution</li>
+                                    <li>Low Signal Loss</li>
+                                    <li>Professional Installation</li>
+                                </ul>
+                                <div class="showcase-product-price">₹1,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 17: Time Attendance + Door Access Control (All in 1) By TIME WATCH -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80" alt="Time Attendance + Door Access Control" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Time Attendance + Door Access Control (All in 1) By TIME WATCH</h3>
+                                <p class="showcase-product-description">Comprehensive biometric attendance and access control system with multiple authentication methods for secure and efficient workforce management.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Face Detection / Thumb Recognition</li>
+                                    <li>Palm / RFID / PIN Support</li>
+                                    <li>Battery Backup & WiFi Online Access</li>
+                                </ul>
+                                <div class="showcase-product-price">₹6,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 18: Mobile Network Booster Full Kit -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Mobile Network Booster Full Kit" class="showcase-product-image">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Mobile Network Booster Full Kit</h3>
+                                <p class="showcase-product-description">Complete mobile network booster kit with all essential components for professional installation and optimal signal enhancement.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Booster Repeater x1 Pc</li>
+                                    <li>Antenna (9Dbi-original) x2 Pc</li>
+                                    <li>LMR Cable x10 Metre</li>
+                                    <li>LMR Connector x4 Pc</li>
+                                    <li>Power Adaptor x1 Pc</li>
+                                </ul>
+                                <div class="showcase-product-price">₹8,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 19: Simple And Easy Biometric By Time Watch -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80" alt="Simple And Easy Biometric By Time Watch" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Simple And Easy Biometric By Time Watch</h3>
+                                <p class="showcase-product-description">Simple and easy-to-use biometric time attendance system with door access control for efficient workforce management.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Time Attendance + Door Access Control</li>
+                                    <li>Thumb / RFID / Pin Code</li>
+                                    <li>USB Backup</li>
+                                </ul>
+                                <div class="showcase-product-price">₹4,450</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 20: Micro SD (Class 10) MASTEL - 64GB -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./microsd-64gb.png" alt="Micro SD Class 10 64GB MASTEL" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Micro SD (Class 10) MASTEL - 64GB</h3>
+                                <p class="showcase-product-description">High-speed Class 10 Micro SD card with 64GB storage capacity, perfect for cameras, smartphones, and other devices.</p>
+                                <ul class="showcase-product-features">
+                                    <li>64GB Storage Capacity</li>
+                                    <li>Class 10 High Speed</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹1,300</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 21: Micro SD (Class 10) MASTEL - 128GB -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./microsd-128gb.png" alt="Micro SD Class 10 128GB MASTEL" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Micro SD (Class 10) MASTEL - 128GB</h3>
+                                <p class="showcase-product-description">Premium Class 10 Micro SD card with 128GB storage capacity, ideal for high-resolution video recording and large file storage.</p>
+                                <ul class="showcase-product-features">
+                                    <li>128GB Storage Capacity</li>
+                                    <li>Class 10 High Speed</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹1,875</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 22: Face detection Door Access Control Machine -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./Screenshot 2026-01-27 131034.png" alt="Face detection Door Access Control Machine" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Face detection Door Access Control Machine</h3>
+                                <p class="showcase-product-description">Advanced biometric door access control system with multiple authentication methods for secure and convenient access management.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Face Detection</li>
+                                    <li>Palm Detection</li>
+                                    <li>RFID + PIN Support</li>
+                                </ul>
+                                <div class="showcase-product-price">₹4,500</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 23: Q100 DVR 5mp H.265 - 16ch+16Audio -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./dvr.webp" alt="Q100 DVR 5mp H.265 16ch+16Audio" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 DVR 5mp H.265 - 16ch+16Audio</h3>
+                                <p class="showcase-product-description">Professional 5MP H.265 DVR system supporting 16 channels with 16 audio inputs for comprehensive surveillance recording.</p>
+                                <ul class="showcase-product-features">
+                                    <li>16 Channel + 16 Audio</li>
+                                    <li>5MP H.265 Compression</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹6,500</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 24: Q100 DVR 5mp H.265 - 08ch+08Audio -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./dvr.webp" alt="Q100 DVR 5mp H.265 08ch+08Audio" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 DVR 5mp H.265 - 08ch+08Audio</h3>
+                                <p class="showcase-product-description">Compact 5MP H.265 DVR system supporting 8 channels with 8 audio inputs, ideal for medium-scale surveillance.</p>
+                                <ul class="showcase-product-features">
+                                    <li>8 Channel + 8 Audio</li>
+                                    <li>5MP H.265 Compression</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹3,900</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 25: Q100 DVR 5mp H.265 - 04ch+04Audio -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./dvr.webp" alt="Q100 DVR 5mp H.265 04ch+04Audio" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Q100 DVR 5mp H.265 - 04ch+04Audio</h3>
+                                <p class="showcase-product-description">Entry-level 5MP H.265 DVR system supporting 4 channels with 4 audio inputs, perfect for small-scale installations.</p>
+                                <ul class="showcase-product-features">
+                                    <li>4 Channel + 4 Audio</li>
+                                    <li>5MP H.265 Compression</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹3,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 26: Mastel PoE Switch - 4P -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./Screenshot 2026-01-27 132404.png" alt="Mastel PoE Switch 4P" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Mastel PoE Switch - 4P</h3>
+                                <p class="showcase-product-description">4-port Power over Ethernet switch for powering and connecting up to 4 PoE devices like IP cameras and access points.</p>
+                                <ul class="showcase-product-features">
+                                    <li>4 Port PoE Switch</li>
+                                    <li>Power Over Ethernet</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹1,800</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 27: Mastel PoE Switch - 8P -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./Screenshot 2026-01-27 132404.png" alt="Mastel PoE Switch 8P" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">Mastel PoE Switch - 8P</h3>
+                                <p class="showcase-product-description">8-port Power over Ethernet switch for powering and connecting up to 8 PoE devices, ideal for larger surveillance installations.</p>
+                                <ul class="showcase-product-features">
+                                    <li>8 Port PoE Switch</li>
+                                    <li>Power Over Ethernet</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹2,200</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 28: 8P PoE Switch (Full Giga) -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./Screenshot 2026-01-27 132404.png" alt="8P PoE Switch Full Giga" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">8P PoE Switch (Full Giga)</h3>
+                                <p class="showcase-product-description">8-port Gigabit Power over Ethernet switch with full gigabit speed support for high-performance network and PoE device connectivity.</p>
+                                <ul class="showcase-product-features">
+                                    <li>8 Port Full Gigabit</li>
+                                    <li>High-Speed PoE Support</li>
+                                    <li>2 Years Warranty</li>
+                                </ul>
+                                <div class="showcase-product-price">₹3,800</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 29: CAT-6 BUNDLE -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./Screenshot 2026-01-27 133045.png" alt="CAT-6 BUNDLE" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">CAT-6 BUNDLE</h3>
+                                <p class="showcase-product-description">Complete CAT-6 cable bundle with full copper construction, ideal for professional network installations and high-speed data transmission.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Full Copper Construction</li>
+                                    <li>Complete Bundle Package</li>
+                                    <li>Professional Grade Quality</li>
+                                </ul>
+                                <div class="showcase-product-price">₹7,500</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 30: CAT-6 Outdoor 3+1 -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./Screenshot 2026-01-27 133045.png" alt="CAT-6 Outdoor 3+1" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">CAT-6 Outdoor 3+1</h3>
+                                <p class="showcase-product-description">Weather-resistant outdoor CAT-6 cable with 3+1 configuration, designed for outdoor installations and harsh environmental conditions.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Outdoor Weatherproof Design</li>
+                                    <li>3+1 Configuration</li>
+                                    <li>Full Copper Quality</li>
+                                </ul>
+                                <div class="showcase-product-price">₹1,500</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 31: CAT-6 Indoor 3+1 -->
+                        <div class="showcase-product-card fade-in">
+                            <div class="showcase-product-image-wrapper">
+                                <img src="./Screenshot 2026-01-27 133045.png" alt="CAT-6 Indoor 3+1" class="showcase-product-image" style="object-fit: contain; background: #f5f5f5;">
+                            </div>
+                            <div class="showcase-product-content">
+                                <h3 class="showcase-product-title">CAT-6 Indoor 3+1</h3>
+                                <p class="showcase-product-description">Premium indoor CAT-6 cable with 3+1 configuration, perfect for indoor network installations and office environments.</p>
+                                <ul class="showcase-product-features">
+                                    <li>Indoor Installation Ready</li>
+                                    <li>3+1 Configuration</li>
+                                    <li>Full Copper Construction</li>
+                                </ul>
+                                <div class="showcase-product-price">₹1,800</div>
+                                <a href="#contact" class="showcase-product-button" onclick="window.closeProductShowcase(); setTimeout(() => { document.querySelector('#contact').scrollIntoView({behavior: 'smooth'}); }, 300);">Enquire Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="see-all-products-wrapper" id="seeAllProductsWrapper">
+                        <button class="btn btn-primary btn-large" id="seeAllProductsBtn">
+                            <span>See All Products</span>
+                            <span class="btn-arrow">↓</span>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="content-cards-section">
+                    <div class="content-card">
+                        <h2 class="content-card-title">Why It's Ideal</h2>
+                        <div class="content-card-list">
+                            <div class="content-item">
+                                <strong>Peace of Mind:</strong> 24/7 monitoring keeps you aware and in control.
+                            </div>
+                            <div class="content-item">
+                                <strong>Deterrence & Evidence:</strong> Visible cameras deter intruders; clear recordings support investigations.
+                            </div>
+                            <div class="content-item">
+                                <strong>User-Friendly:</strong> Intuitive interfaces require minimal training.
+                            </div>
+                            <div class="content-item">
+                                <strong>Future-Ready:</strong> Easily integrates with access control, alarms, and smart home systems.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h2 class="content-card-title">Use Cases</h2>
+                        <div class="content-card-list">
+                            <div class="content-item">
+                                <strong>Home Security:</strong> Protect your loved ones and valuables.
+                            </div>
+                            <div class="content-item">
+                                <strong>Business Surveillance:</strong> Monitor entrances, cash areas, and employee activity.
+                            </div>
+                            <div class="content-item">
+                                <strong>Public Spaces:</strong> Enhance safety in parking lots, schools, or community centers.
+                            </div>
+                            <div class="content-item">
+                                <strong>Industrial Sites:</strong> Oversee large perimeters and critical infrastructure.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-cta-section">
+                    <h2 class="product-cta-title">Ready to Secure Your Property?</h2>
+                    <p class="product-cta-text">Contact us today for a free consultation and quote.</p>
+                    <div class="product-cta-buttons">
+                        <a href="#contact" class="btn btn-primary btn-large" id="productCtaQuote">Get a Free Quote</a>
+                        <a href="tel:+910000000000" class="btn btn-secondary btn-large">Call Now</a>
                     </div>
                 </div>
             </div>
@@ -534,8 +1236,8 @@
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">Phone * (10 digits only)</label>
+                            <input type="tel" id="phone" name="phone" required maxlength="10" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number">
                         </div>
                         <div class="form-group">
                             <label for="email">Email *</label>
@@ -575,7 +1277,7 @@
                         <div class="contact-icon">📍</div>
                         <div class="contact-details">
                             <h3>Address</h3>
-                            <p>Your Business Address Here<br>City, State - PIN Code</p>
+                            <p>Molax Bhavan Road No 2, Chedda Nagar<br>Near Chedda Gym, Jym Khana Chamber<br>Mumbai, Maharashtra - 400089</p>
                         </div>
                     </div>
                 </div>
@@ -636,6 +1338,36 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <span>↑</span>
     </button>
+
+    <!-- Enquiry Modal -->
+    <div class="enquiry-modal" id="enquiryModal">
+        <div class="enquiry-modal-overlay"></div>
+        <div class="enquiry-modal-content">
+            <button class="enquiry-modal-close" id="enquiryModalClose" aria-label="Close modal">×</button>
+            <h2 class="enquiry-modal-title">Enquire About Product</h2>
+            <form class="contact-form" id="enquiryForm">
+                <input type="hidden" id="enquiryProductName" name="productName">
+                <div class="form-group">
+                    <label for="enquiryName">Full Name *</label>
+                    <input type="text" id="enquiryName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="enquiryPhone">Phone * (10 digits only)</label>
+                    <input type="tel" id="enquiryPhone" name="phone" required maxlength="10" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number">
+                </div>
+                <div class="form-group">
+                    <label for="enquiryEmail">Email *</label>
+                    <input type="email" id="enquiryEmail" name="email" required placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="enquiryMessage">Message</label>
+                    <textarea id="enquiryMessage" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Enquiry</button>
+                <div class="form-message" id="enquiryFormMessage"></div>
+            </form>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="./script.js?v=2" defer></script>
