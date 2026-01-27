@@ -315,6 +315,15 @@ function openProductShowcase() {
         productShowcase.classList.add('active');
         mainContent.classList.add('product-showcase-active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Set Products nav link as active
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#products') {
+                link.classList.add('active');
+            }
+        });
+        
         // Reset back button visibility when opening
         if (backToHomeBtn) {
             setTimeout(() => {
@@ -332,6 +341,14 @@ function closeProductShowcase() {
         productShowcase.classList.remove('active');
         mainContent.classList.remove('product-showcase-active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Reset nav link to Home when closing
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#home') {
+                link.classList.add('active');
+            }
+        });
     }
 }
 
@@ -398,10 +415,9 @@ if (productCtaQuote) {
     });
 }
 
-// Handle "See All Products" / "Show Less" button toggle
+// Handle "See All Products" / "Close" button toggle
 const seeAllProductsBtn = document.getElementById('seeAllProductsBtn');
 const showcaseProductsGrid = document.getElementById('showcaseProductsGrid');
-const seeAllProductsWrapper = document.getElementById('seeAllProductsWrapper');
 
 if (seeAllProductsBtn && showcaseProductsGrid) {
     const allProducts = showcaseProductsGrid.querySelectorAll('.showcase-product-card');
@@ -413,45 +429,39 @@ if (seeAllProductsBtn && showcaseProductsGrid) {
         }
     });
     
-    seeAllProductsBtn.addEventListener('click', (e) => {
+    // Add click event listener
+    seeAllProductsBtn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
+        // Get current state
         const isShowingAll = showcaseProductsGrid.classList.contains('show-all');
         
-        // Get button elements fresh each time to ensure we have the right references
-        const spans = seeAllProductsBtn.querySelectorAll('span');
-        const buttonText = spans[0]; // First span contains the text
-        const buttonArrow = seeAllProductsBtn.querySelector('.btn-arrow') || spans[1]; // Second span is arrow
+        // Get button spans
+        const spans = this.querySelectorAll('span');
+        const buttonText = spans[0];
+        const buttonArrow = spans[1] || this.querySelector('.btn-arrow');
         
         if (isShowingAll) {
-            // Hide products beyond first 5
+            // Currently showing all - hide products beyond first 5
             showcaseProductsGrid.classList.remove('show-all');
             allProducts.forEach((product, index) => {
                 if (index >= 5) {
                     product.style.display = 'none';
                 }
             });
-            // Update button text
-            if (buttonText) {
-                buttonText.textContent = 'See All Products';
-            }
-            if (buttonArrow) {
-                buttonArrow.textContent = '↓';
-            }
+            // Update button to "See All Products"
+            if (buttonText) buttonText.textContent = 'See All Products';
+            if (buttonArrow) buttonArrow.textContent = '↓';
         } else {
-            // Show all products
+            // Currently showing only 5 - show all products
             showcaseProductsGrid.classList.add('show-all');
             allProducts.forEach((product) => {
                 product.style.display = 'flex';
             });
-            // Update button text
-            if (buttonText) {
-                buttonText.textContent = 'Close';
-            }
-            if (buttonArrow) {
-                buttonArrow.textContent = '×';
-            }
+            // Update button to "Close" immediately
+            if (buttonText) buttonText.textContent = 'Close';
+            if (buttonArrow) buttonArrow.textContent = '×';
         }
     });
 }
@@ -753,12 +763,157 @@ if (document.readyState === 'loading') {
     setupEnquireButtons();
 }
 
-// Also setup buttons when product showcase opens (for dynamically loaded content)
-const originalOpenProductShowcase = openProductShowcase;
-openProductShowcase = function() {
-    originalOpenProductShowcase();
+// Store original function for later use
+let originalOpenProductShowcase = openProductShowcase;
+
+// Product Search Functionality
+function initializeProductSearch() {
+    const productSearchInput = document.getElementById('productSearchInput');
+    const searchClearBtn = document.getElementById('searchClearBtn');
+    const searchResultsInfo = document.getElementById('searchResultsInfo');
+    
+    if (!productSearchInput) return;
+    
+    function filterProducts(searchTerm) {
+        const grid = document.getElementById('showcaseProductsGrid');
+        if (!grid) return;
+        
+        const products = grid.querySelectorAll('.showcase-product-card');
+        const searchLower = searchTerm.toLowerCase().trim();
+        let visibleCount = 0;
+        
+        // If search is empty, show all products (reset to default behavior)
+        if (!searchLower) {
+            products.forEach(product => {
+                product.classList.remove('hidden');
+                product.classList.remove('search-match');
+                visibleCount++;
+            });
+            // Remove search-active class from grid
+            grid.classList.remove('search-active');
+        } else {
+            // Add search-active class to grid when searching
+            grid.classList.add('search-active');
+            // Filter products based on search term
+            products.forEach(product => {
+                const title = product.querySelector('.showcase-product-title')?.textContent.toLowerCase() || '';
+                const description = product.querySelector('.showcase-product-description')?.textContent.toLowerCase() || '';
+                const features = Array.from(product.querySelectorAll('.showcase-product-features li'))
+                    .map(li => li.textContent.toLowerCase())
+                    .join(' ');
+                
+                const searchableText = `${title} ${description} ${features}`;
+                
+                // Check if search term matches (partial match)
+                if (searchableText.includes(searchLower)) {
+                    product.classList.remove('hidden');
+                    product.classList.add('search-match');
+                    visibleCount++;
+                } else {
+                    product.classList.add('hidden');
+                    product.classList.remove('search-match');
+                }
+            });
+        }
+        
+        // Update results info
+        if (searchResultsInfo) {
+            if (searchTerm.trim()) {
+                if (visibleCount === 0) {
+                    searchResultsInfo.textContent = `No products found for "${searchTerm}"`;
+                    searchResultsInfo.style.color = '#ff4444';
+                } else {
+                    searchResultsInfo.textContent = `Found ${visibleCount} product${visibleCount !== 1 ? 's' : ''} for "${searchTerm}"`;
+                    searchResultsInfo.style.color = 'var(--text-secondary)';
+                }
+                searchResultsInfo.classList.remove('hidden');
+            } else {
+                searchResultsInfo.classList.add('hidden');
+            }
+        }
+        
+        // Show/hide clear button
+        if (searchClearBtn) {
+            searchClearBtn.style.display = searchTerm.trim() ? 'flex' : 'none';
+        }
+    }
+    
+    // Immediate search on every keystroke (real-time)
+    productSearchInput.addEventListener('input', (e) => {
+        const searchValue = e.target.value;
+        filterProducts(searchValue);
+    }, { passive: true });
+    
+    // Also trigger on paste
+    productSearchInput.addEventListener('paste', (e) => {
+        setTimeout(() => {
+            filterProducts(e.target.value);
+        }, 0);
+    });
+    
+    // Clear search
+    if (searchClearBtn) {
+        searchClearBtn.addEventListener('click', () => {
+            productSearchInput.value = '';
+            filterProducts('');
+            productSearchInput.focus();
+        });
+    }
+    
+    // Enter key to scroll to first result
+    productSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const grid = document.getElementById('showcaseProductsGrid');
+            if (grid) {
+                const firstVisible = grid.querySelector('.showcase-product-card:not(.hidden)');
+                if (firstVisible) {
+                    firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        }
+    });
+}
+
+// Initialize search when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeProductSearch);
+} else {
+    initializeProductSearch();
+}
+
+// Override openProductShowcase to initialize search (if not already overridden)
+if (typeof originalOpenProductShowcase === 'undefined') {
+    originalOpenProductShowcase = openProductShowcase;
+}
+
+const enhancedOpenProductShowcase = function() {
+    if (originalOpenProductShowcase) {
+        originalOpenProductShowcase();
+    }
+    // Setup enquire buttons
     setTimeout(setupEnquireButtons, 200);
+    // Initialize search and reset when opening
+    setTimeout(() => {
+        initializeProductSearch();
+        const productSearchInput = document.getElementById('productSearchInput');
+        if (productSearchInput) {
+            productSearchInput.value = '';
+            const grid = document.getElementById('showcaseProductsGrid');
+            if (grid) {
+                const products = grid.querySelectorAll('.showcase-product-card');
+                products.forEach(product => {
+                    product.classList.remove('hidden');
+                });
+            }
+        }
+    }, 200);
 };
+
+// Only override if not already done
+if (openProductShowcase.toString().indexOf('enhancedOpenProductShowcase') === -1) {
+    openProductShowcase = enhancedOpenProductShowcase;
+}
 
 // Console welcome message
 console.log('%c🔒 Perfect Security Camera Solution', 'color: #00d4ff; font-size: 20px; font-weight: bold;');
