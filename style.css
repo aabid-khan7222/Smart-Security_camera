@@ -1599,13 +1599,13 @@ img {
     }
 }
 
-/* Mobile & Tablet only: slideshow between tagline and Call Now (centered), buttons side by side. Desktop unchanged. */
+/* Mobile & Tablet only: slideshow between tagline and Call Now (centered), buttons side by side. Compact spacing. Desktop unchanged. */
 @media (max-width: 1023px) {
     .hero-wrapper {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto minmax(280px, auto) auto auto;
-        gap: var(--spacing-md);
+        gap: 0.5rem;
         align-items: start;
     }
     .hero-content {
@@ -1613,12 +1613,12 @@ img {
     }
     .hero-title {
         grid-row: 1;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.2rem;
     }
     .hero-tagline {
         grid-row: 2;
-        font-size: 0.95rem;
-        margin-bottom: 0.6rem;
+        font-size: 0.875rem;
+        margin-bottom: 0;
     }
     .hero-slideshow {
         grid-row: 3;
@@ -1645,6 +1645,7 @@ img {
         gap: 0.5rem;
         align-items: stretch;
         width: 100%;
+        margin-bottom: 0;
     }
     .hero-buttons .btn {
         flex: 1 1 0;
@@ -1654,6 +1655,7 @@ img {
     }
     .trust-badges {
         grid-row: 5;
+        margin-top: 0;
     }
 }
 
