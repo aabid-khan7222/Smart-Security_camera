@@ -1697,13 +1697,13 @@ img {
     
     .hero-slideshow {
         order: 2;
-        max-width: 52.5%;
+        max-width: 47.38%; /* 52.5% × 0.95 × 0.95 — 10% total smaller on desktop/laptop only */
         display: flex;
         justify-content: flex-end;
     }
     
     .slideshow-container {
-        max-width: 578px;
+        max-width: 522px; /* 578 × 0.95 × 0.95 — 10% total smaller on desktop/laptop only */
         margin-right: 0;
     }
     
