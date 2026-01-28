@@ -919,8 +919,6 @@ if (openProductShowcase.toString().indexOf('enhancedOpenProductShowcase') === -1
 function initializeHeroSlideshow() {
     const slides = document.querySelectorAll('.hero-slideshow .slide');
     const indicators = document.querySelectorAll('.hero-slideshow .indicator');
-    const prevBtn = document.querySelector('.hero-slideshow .slide-btn.prev');
-    const nextBtn = document.querySelector('.hero-slideshow .slide-btn.next');
     
     if (!slides.length) return;
     
@@ -1028,28 +1026,41 @@ function initializeHeroSlideshow() {
         }
     }
     
-    // Event listeners for navigation buttons
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
+    // Swipe: left = next, right = prev (touch on mobile + mouse drag on desktop/laptop)
+    let startX = 0;
+    let endX = 0;
+    let mouseDragActive = false;
+    const minSwipePx = 50;
+    function handleSwipe() {
+        const diff = startX - endX;
+        if (diff > minSwipePx) nextSlide();
+        else if (diff < -minSwipePx) prevSlide();
+    }
+    if (slideshowContainer) {
+        slideshowContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+        slideshowContainer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        }, { passive: true });
+        slideshowContainer.addEventListener('mousedown', (e) => {
+            mouseDragActive = true;
+            startX = e.clientX;
+        });
+        slideshowContainer.addEventListener('mouseup', (e) => {
+            if (mouseDragActive) {
+                endX = e.clientX;
+                handleSwipe();
+            }
+            mouseDragActive = false;
+        });
+        slideshowContainer.addEventListener('mouseleave', () => {
+            mouseDragActive = false;
         });
     }
     
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-        });
-    }
-    
-    // Event listeners for indicators
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            showSlide(index);
-            scheduleNextSlide();
-        });
-    });
-    
-    // Pause on hover
+    // Pause on hover (desktop)
     if (slideshowContainer) {
         slideshowContainer.addEventListener('mouseenter', stopSlideshow);
         slideshowContainer.addEventListener('mouseleave', startSlideshow);

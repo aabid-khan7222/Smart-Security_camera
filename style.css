@@ -507,13 +507,13 @@ img {
 
 
 .slideshow-controls {
+    display: none; /* Arrows & dots hidden; use finger swipe left/right to change slides */
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     padding: 1.5rem 1rem 1rem;
-    display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -1603,6 +1603,9 @@ img {
 @media (max-width: 1023px) {
     .nav-link.active {
         color: #ffffff;
+    }
+    .logo-image {
+        height: 50px;
     }
     .hero-wrapper {
         display: grid;
