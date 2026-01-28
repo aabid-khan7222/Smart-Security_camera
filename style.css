@@ -1629,6 +1629,8 @@ img {
         justify-content: center;
     }
     .hero-slideshow .slideshow-container {
+        width: 100%;
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
