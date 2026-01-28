@@ -1613,9 +1613,12 @@ img {
     }
     .hero-title {
         grid-row: 1;
+        margin-bottom: 0.35rem;
     }
     .hero-tagline {
         grid-row: 2;
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
     }
     .hero-slideshow {
         grid-row: 3;
@@ -1628,6 +1631,9 @@ img {
     .hero-slideshow .slideshow-container {
         margin-left: auto;
         margin-right: auto;
+        max-height: 260px;
+        width: auto;
+        aspect-ratio: 1;
     }
     .hero-buttons {
         grid-row: 4;
