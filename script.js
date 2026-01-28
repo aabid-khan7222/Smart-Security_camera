@@ -915,6 +915,172 @@ if (openProductShowcase.toString().indexOf('enhancedOpenProductShowcase') === -1
     openProductShowcase = enhancedOpenProductShowcase;
 }
 
+// Hero Slideshow Functionality
+function initializeHeroSlideshow() {
+    const slides = document.querySelectorAll('.hero-slideshow .slide');
+    const indicators = document.querySelectorAll('.hero-slideshow .indicator');
+    const prevBtn = document.querySelector('.hero-slideshow .slide-btn.prev');
+    const nextBtn = document.querySelector('.hero-slideshow .slide-btn.next');
+    
+    if (!slides.length) return;
+    
+    let currentSlide = 0;
+    let slideInterval = null;
+    let slideTimeout = null;
+    let glowTimeout = null;
+    const slideDuration = 3000; // 3 seconds
+    const slideTransitionMs = 750; // image transition ~0.7s - glow isi ke baad start
+    const glowDurationMs = 2200;
+    
+    const slideshowContainer = document.querySelector('.slideshow-container');
+    
+    function showSlide(index) {
+        // Clear any existing timeouts/intervals
+        if (slideTimeout) {
+            clearTimeout(slideTimeout);
+            slideTimeout = null;
+        }
+        if (slideInterval) {
+            clearInterval(slideInterval);
+            slideInterval = null;
+        }
+        if (glowTimeout) {
+            clearTimeout(glowTimeout);
+            glowTimeout = null;
+        }
+        
+        // Remove active class from all slides and indicators
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // Ensure index is within bounds
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+        
+        // Add active class to current slide and indicator
+        slides[currentSlide].classList.add('active');
+        if (indicators[currentSlide]) {
+            indicators[currentSlide].classList.add('active');
+        }
+        
+        // Chamak image change ke BAAD start - pehle image transition (0.75s), phir glow
+        if (slideshowContainer) {
+            slideshowContainer.classList.remove('glow');
+            glowTimeout = setTimeout(() => {
+                glowTimeout = null;
+                void slideshowContainer.offsetWidth;
+                slideshowContainer.classList.add('glow');
+                setTimeout(() => {
+                    slideshowContainer.classList.remove('glow');
+                }, glowDurationMs);
+            }, slideTransitionMs);
+        }
+    }
+    
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+        scheduleNextSlide();
+    }
+    
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prevIndex);
+        scheduleNextSlide();
+    }
+    
+    function scheduleNextSlide() {
+        // Clear any existing timeout
+        if (slideTimeout) {
+            clearTimeout(slideTimeout);
+        }
+        // Schedule next slide after exactly 3 seconds
+        slideTimeout = setTimeout(() => {
+            nextSlide();
+        }, slideDuration);
+    }
+    
+    function startSlideshow() {
+        // Clear any existing intervals/timeouts
+        if (slideInterval) {
+            clearInterval(slideInterval);
+        }
+        if (slideTimeout) {
+            clearTimeout(slideTimeout);
+        }
+        // Schedule the first transition after 3 seconds
+        scheduleNextSlide();
+    }
+    
+    function stopSlideshow() {
+        if (slideInterval) {
+            clearInterval(slideInterval);
+            slideInterval = null;
+        }
+        if (slideTimeout) {
+            clearTimeout(slideTimeout);
+            slideTimeout = null;
+        }
+    }
+    
+    // Event listeners for navigation buttons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+        });
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+        });
+    }
+    
+    // Event listeners for indicators
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+            scheduleNextSlide();
+        });
+    });
+    
+    // Pause on hover
+    if (slideshowContainer) {
+        slideshowContainer.addEventListener('mouseenter', stopSlideshow);
+        slideshowContainer.addEventListener('mouseleave', startSlideshow);
+    }
+    
+    // Initialize first slide
+    showSlide(0);
+    
+    // Start automatic slideshow after a small delay to ensure first slide is visible
+    setTimeout(() => {
+        startSlideshow();
+    }, 100);
+    
+    // Handle visibility change (pause when tab is hidden)
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopSlideshow();
+        } else {
+            // Restart from current slide
+            startSlideshow();
+        }
+    });
+}
+
+// Initialize slideshow when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeHeroSlideshow);
+} else {
+    initializeHeroSlideshow();
+}
+
 // Console welcome message
 console.log('%c🔒 Perfect Security Camera Solution', 'color: #00d4ff; font-size: 20px; font-weight: bold;');
 console.log('%cProfessional CCTV Installation & Monitoring', 'color: #b8c5d6; font-size: 14px;');
