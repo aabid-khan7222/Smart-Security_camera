@@ -1604,7 +1604,7 @@ img {
     .hero-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto auto;
+        grid-template-rows: auto auto minmax(280px, auto) auto auto;
         gap: var(--spacing-md);
         align-items: start;
     }
@@ -1625,12 +1625,16 @@ img {
         justify-self: center;
         width: 100%;
         max-width: 100%;
+        min-height: 280px;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     .hero-slideshow .slideshow-container {
         width: 100%;
         max-width: 100%;
+        min-height: 260px;
+        flex-shrink: 0;
         margin-left: auto;
         margin-right: auto;
     }
